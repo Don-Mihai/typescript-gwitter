@@ -1,0 +1,133 @@
+@import "../variables";
+.wraper {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+    width: min-content;
+    margin-bottom: 20px;
+    background-color: transparent;
+
+    &-icon {
+      margin-left: -20px;
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+.aside {
+  position: relative;
+  padding: 10px 25px 0 30px;
+  width: 250px;
+
+  &_right {
+    width: 350px;
+  }
+
+  &__tweet {
+    width: 100%;
+  }
+
+  &__input {
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+  }
+  &__subscribes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    background-color: #333;
+    &-title {
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-weight: normal;
+      color: #fff;
+    }
+  }
+  &__subscribe {
+    &-item {
+      display: flex;
+      align-items: center;
+    }
+    &-category {
+      flex-grow: 1;
+      margin-left: 10px;
+      color: #fff;
+    }
+    &-wrap {
+      margin-left: 5px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      color: #fff;
+    }
+    &-login {
+      color: #aaa;
+    }
+  }
+}
+
+.tweet {
+  display: flex;
+  padding: 20px;
+  &__wrap-content {
+    margin-left: 15px;
+    width: 100%;
+  }
+  &__input {
+    width: 100%;
+    border: none;
+    font-size: 20px;
+    color: #fff;
+    background-color: transparent;
+    outline: none;
+  }
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__wrap-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  &__icon {
+    color: $main-color;
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+  &__img-subtitle {
+    margin-bottom: 20px;
+    font-weight: normal;
+    color: #fff;
+  }
+  &__tool-box {
+    padding: 20px 20px 0 20px;
+    border: 1px solid #333;
+    background-color: #000;
+  }
+}

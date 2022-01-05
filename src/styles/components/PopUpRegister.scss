@@ -1,0 +1,106 @@
+@import "../variables";
+.popup {
+  position: absolute;
+  display: flex;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  &__errors-text {
+    color: $error-color;
+    &::before {
+      display: inline;
+      content: "⚠ ";
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #000000;
+  }
+
+  &__wrap {
+    position: relative;
+    display: flex;
+    margin: auto auto;
+    z-index: 10;
+    perspective: 1000px;
+  }
+
+  &__front {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    width: 600px;
+    border-radius: 20px;
+    background-color: #fff;
+    transition: 1s ease-in-out transform;
+    backface-visibility: hidden;
+  }
+  &__back {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    width: 100%;
+    border-radius: 20px;
+    background-color: #fff;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+  }
+
+  &__rotate {
+    & .popup__front {
+      transition: 1s ease-in-out transform;
+      transform: rotateY(180deg);
+    }
+    & .popup__back {
+      transition: 1s ease-in-out transform;
+      transform: rotateY(360deg);
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__input {
+    padding: 18px 14px;
+    border: 1px solid grey;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+
+    &:hover {
+      border: 1px solid #000;
+    }
+
+    &:focus {
+      border: 1px solid rgb(29, 155, 240);
+      box-shadow: 0 0 0 1px rgb(29, 155, 240);
+    }
+  }
+
+  &__subtitle {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+  }
+
+  &__text {
+    color: #000;
+    margin-bottom: 20px;
+  }
+
+  &__btn {
+    margin-top: 20px;
+  }
+}
