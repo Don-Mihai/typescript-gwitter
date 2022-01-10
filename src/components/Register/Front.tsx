@@ -8,14 +8,15 @@ interface IFront {
 }
 
 const Front = React.memo(({ setRotate, rotate, setRegData }: IFront) => {
-  const onSubmit = () => {};
+  const [email, setEmail] = React.useState<string>("");
+  const [password, setPassword] = React.useState<string>("");
 
   const MemodTextField = React.memo(TextField);
 
   return (
     <div className={"popup__front"}>
       <span className="popup__title">Создайте учетную запись</span>
-      <form action="" className="popup__form" onSubmit={onSubmit}>
+      <form action="" className="popup__form">
         <input type="text" className="popup__input" placeholder="Имя" />
 
         <input type="text" className="popup__input" placeholder="Фамилия" />

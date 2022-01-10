@@ -6,6 +6,16 @@
   bottom: 0;
   left: 0;
   right: 0;
+  animation: popShow 0.3s ease-in-out;
+
+  @keyframes popShow {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 
   &__errors-text {
     color: $error-color;
