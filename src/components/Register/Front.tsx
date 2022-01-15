@@ -1,5 +1,6 @@
 import React from "react";
 import { TextField } from "@mui/material";
+import { useInput } from "../../hooks";
 
 interface IFront {
   setRotate: (value: boolean) => void;
@@ -14,11 +15,7 @@ interface IInputs {
 }
 
 const Front = React.memo(({ setRotate, rotate, setRegData }: IFront) => {
-  const [inputs, setInputs] = React.useState<IInputs>({
-    name: "",
-    lastName: "",
-    birthDate: "",
-  });
+  const name = useInput("", { minLength: 3, maxLength: 20 });
 
   const MemodTextField = React.memo(TextField);
 
@@ -28,28 +25,25 @@ const Front = React.memo(({ setRotate, rotate, setRegData }: IFront) => {
       <form action="" className="popup__form">
         <input
           name={"name"}
-          value={inputs.name}
-          onBlur={handleBlur}
-          onChange={handleInputs}
+          value={name.value}
+          onBlur={name.handleBlur}
+          onChange={name.handleValue}
           type="text"
           className="popup__input"
           placeholder="Имя"
         />
-        {inputsDirty?.name && nameError && (
-          <span className={"popup__errors-text"}>{nameError}</span>
+        {name.isDirty && name.minLength.value && (
+          <span className={"popup__errors-text"}>
+            {name.minLength.textError}
+          </span>
         )}
         <input
           name={"lastName"}
-          value={inputs.lastName}
-          onBlur={handleBlur}
-          onChange={handleInputs}
           type="text"
           className="popup__input"
           placeholder="Фамилия"
         />
-        {inputsDirty?.lastName && lastNameError && (
-          <span className={"popup__errors-text"}>{lastNameError}</span>
-        )}
+
         <span className="popup__subtitle">Дата рождения</span>
         <p className="popup__text">
           Эта информация не будет общедоступной. Подтвердите свой возраст, даже
@@ -58,18 +52,11 @@ const Front = React.memo(({ setRotate, rotate, setRegData }: IFront) => {
         </p>
         <MemodTextField
           name={"birthDate"}
-          value={inputs.birthDate}
-          // @ts-ignore
-          onBlur={handleBlur}
-          // @ts-ignore
-          onChange={handleInputs}
           className="popup__date"
           type="date"
           fullWidth
         />
-        {inputsDirty?.birthDate && birthDateError && (
-          <span className={"popup__errors-text"}>{birthDateError}</span>
-        )}
+
         <button className="popup__btn btn-reset btn" type="submit">
           Далее
         </button>
